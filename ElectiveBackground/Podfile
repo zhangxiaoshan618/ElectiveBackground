@@ -1,0 +1,24 @@
+platform :ios, '8.0'
+
+target 'ElectiveBackground' do
+
+  use_frameworks!
+
+    pod 'HMQRCodeScanner'
+    pod 'AFNetworking'
+    pod 'SDWebImage'
+    pod 'SVProgressHUD'
+    pod 'MJRefresh', '~> 3.0.8'
+    pod 'ReactiveCocoa', '~> 4.2.2'
+    pod 'SnapKit', '~> 0.22.0'
+    pod 'IQKeyboardManagerSwift', '4.0.5'
+
+    post_install do |installer|
+        installer.pods_project.targets.each do |target|
+            target.build_configurations.each do |config|
+                config.build_settings['SWIFT_VERSION'] = '2.3'
+            end
+        end
+    end
+
+end
